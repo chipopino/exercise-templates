@@ -1,0 +1,30 @@
+.horizontal-menu>*:not(:first-child):not(:last-child) {
+    border-radius: 0px;
+}
+
+.horizontal-menu>*:first-child {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.horizontal-menu>*:last-child {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.vertical-menu>*:not([type="nonexistentType"]) {
+    border-radius: 0px;
+}
+
+.menu-open {
+    transform: translateX(0%);
+}
+.menu-closed {
+    transform: translateX(-100%);
+}
+.menu-open-v {
+    transform: translateY(0%);
+}
+.menu-closed-v {
+    transform: translateY(100%);
+}

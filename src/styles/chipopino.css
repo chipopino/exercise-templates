@@ -1,0 +1,13 @@
+:root {
+    --chipopino-card-bg: lightblue;
+    --chipopino-blank-bg: #e3fbff;
+    --chipopino-menu: lightskyblue;
+    --chipopino-btn-bg: #007bff;
+    --chipopino-btn-text: #fff;
+    --chipopino-btn-hover-bg: #0056b3;
+    --chipopino-btn-selected-bg: #0366cf;
+    --chipopino-btn-selected-hover-bg: #0366cf;
+    --chipopino-swipe-icon-color: #6e6e6e;
+    --chipopino-text-color: #000;
+    /* --chipopino-img-filter: grayscale(100%) invert(1) brightness(50%) sepia(100%) saturate(10000%) hue-rotate(0deg); */
+}
