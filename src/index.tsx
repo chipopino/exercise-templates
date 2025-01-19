@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { createRoot, Root } from 'react-dom/client';
 import Blank from 'exercises/Blank';
 import Flip from 'exercises/Flip';
 import Classic from 'exercises/Classic';
 import Collection from './exercises/Collection';
 import { loremIpsum } from 'shared/constants';
 import { sizesType } from 'shared/types';
+import { cn } from './shared/methodes';
 import 'styles/root.css';
 import 'styles/shared.css';
+import 'styles/chipopino.css';
 
 
 const mockhDelay = 0;
@@ -50,15 +51,15 @@ const mock = collectionMock;
 
 
 
-type exerciseStateType = 'loading' | 'error' | 'success';
+type exerciseStateType = 'undefined' | 'loading' | 'error' | 'success';
 
 async function fetchData(eid: string, mock: any, isError?: boolean, timeout?: number) {
 
     let finUrl = ''
-    if (process.env.MAIN_PORT === '80') {
-        finUrl = `${process.env.MAIN_URL}/exercises/${eid}/`
-    } else { // for development only
+    if (process.env.MAIN_PORT) {
         finUrl = `${process.env.MAIN_URL}:${process.env.MAIN_PORT}/exercises/${eid}/`
+    } else {
+        finUrl = `${process.env.MAIN_URL}/exercises/${eid}/`
     }
 
     return new Promise((resolve, reject) => {
@@ -127,15 +128,16 @@ function PreExercise(props: any) {
 }
 
 export default function Exercise(
-    { eid, rawExercise }:
-        { eid: string, rawExercise?: any }
+    { eid, rawExercise, className }:
+        { eid: string, rawExercise?: any, className?: string }
 ) {
     const ref = useRef();
     const [sizes, setSizes] = useState<{} | sizesType>({});
 
     const [resource, setResoutce] = useState<rawExerciseType>({ type: "", content: {} });
-    const [exerciseState, setExerciseState] = useState<exerciseStateType>('loading');
+    const [exerciseState, setExerciseState] = useState<exerciseStateType>('undefined');
 
+    const isUndefined = exerciseState === 'undefined';
     const isLoading = exerciseState === 'loading';
     const isError = exerciseState === 'error';
     const isSuccess = exerciseState === 'success';
@@ -151,7 +153,7 @@ export default function Exercise(
     const MainExercise = exerciseMap[resource.type || 'none'];
 
     useEffect(() => {
-
+        setExerciseState('loading');
         if (rawExercise) {
             setExerciseState('success');
             setResoutce(rawExercise);
@@ -204,7 +206,7 @@ export default function Exercise(
     return <div
         //@ts-ignore
         ref={ref}
-        className='__no_prefix_card_body chipopino-css-prefix'
+        className={cn('__no_prefix_card_body chipopino-css-prefix', className)}
     >
         {isLoading && <PreExercise><Loader /></PreExercise>}
         {isError && <PreExercise><ErrorIcon /></PreExercise>}

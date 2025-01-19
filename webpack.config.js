@@ -4,9 +4,6 @@ const Dotenv = require('dotenv-webpack');
 const dotenv = require('dotenv');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const isProduction = process.env.NODE_ENV === 'production';
-const stylesHandler = 'style-loader';
-
-const nodeExternals = require('webpack-node-externals');
 
 dotenv.config();
 
@@ -17,12 +14,7 @@ function p_src(...args) {
     return p_root('src', ...args);
 }
 function p_dist(...args) {
-    return p_root(
-        process.env.IS_STANDALONE ?
-            'dist' :
-            `../front/public/exercise-templates`,
-        ...args
-    );
+    return p_root('dist', ...args);
 }
 function p_components(...args) {
     return p_src(`components`);
@@ -61,7 +53,7 @@ const config = {
             },
             {
                 test: /\.css$/,
-                use: [stylesHandler, 'css-loader', 'postcss-loader'],
+                use: ['style-loader', 'css-loader', 'postcss-loader'],
                 exclude: /node_modules/,
             },
             {

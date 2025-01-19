@@ -1,14 +1,5 @@
-## env for development
-DEV=1
-IS_STANDALONE=1
+MAIN_URL=https://www.chipopino.com
+MAIN_PORT=
+USE_MOCK=
 MOCK_DELAY=
 MOCK_ERROR=
-MAIN_PORT=80
-MAIN_URL=http://localhost
-
-## to start
-npm i
-npm run watch
-
-you can use liveserver to see the output in dis/index.html
-

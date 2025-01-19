@@ -2,7 +2,7 @@
   "name": "@chipopino/exercises",
   "main": "dist/bundle.js",
   "types": "dist/index.d.ts",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "My webpack project",
   "scripts": {
     "build:dev": "webpack --mode=development",
