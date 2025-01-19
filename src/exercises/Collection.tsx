@@ -3,6 +3,7 @@ import Click from 'components/Click';
 import Btn from 'components/Btn';
 import { isT } from 'shared/constants';
 import { SwipeIcon, SwipeIconLeft, SwipeIconRight } from 'components/Icons';
+import Exercise from '..';
 
 interface collectionType {
     exercises: number[];
@@ -46,7 +47,7 @@ export default function Collection(props: collectionType) {
         &gt;
     </Btn>
 
-    const SwipStyle = { width: '18px', margin: '2px', color:'green', fill:'var(--swipe-icon-color)' };
+    const SwipStyle = { width: '18px', margin: '2px', color: 'green', fill: 'var(--swipe-icon-color)' };
     const mbSwipeJsx = <div className='absolute bottom-0 right-0'>
         {tab === 0 && <SwipeIconRight style={SwipStyle} />}
         {(tab > 0 && tab < tabs - 1) && <SwipeIcon style={SwipStyle} />}
@@ -81,7 +82,8 @@ export default function Collection(props: collectionType) {
                     className='w-full h-full grid-center'
                 >
                     {/*@ts-ignore*/}
-                    {isDsp(i) && <exercise-tag eid={e} class='w-full h-full contents' />}
+                    {/* {isDsp(i) && <exercise-tag eid={e} class='w-full h-full contents' />} */}
+                    {isDsp(i) && <Exercise eid={`${e}`} className='w-full h-full contents' />}
                 </div>)
             }
         </div>
