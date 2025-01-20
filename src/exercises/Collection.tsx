@@ -61,7 +61,7 @@ export default function Collection(props: collectionType) {
     return <Click
         isClickEndOutside
         onSwipe={(evt) => {
-            if (isT) {
+            if (isT()) {
                 if (evt.direction === 'left') {
                     goNext();
                 } else if (evt.direction === 'right') {
@@ -87,8 +87,8 @@ export default function Collection(props: collectionType) {
                 </div>)
             }
         </div>
-        {(!isT && tabs > 1) && nextJsx}
-        {(!isT && tabs > 1) && backJsx}
-        {(isT && tabs > 1) && mbSwipeJsx}
+        {(!isT() && tabs > 1) && nextJsx}
+        {(!isT() && tabs > 1) && backJsx}
+        {(isT() && tabs > 1) && mbSwipeJsx}
     </Click>
 }

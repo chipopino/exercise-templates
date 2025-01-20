@@ -49,7 +49,7 @@ export default function Classic(props: classicType & sizesType) {
     >
         <div
             className={cn(
-                isT && 'select-none',
+                isT() && 'select-none',
                 'grow grid-center',
                 'scroll-y thin-scrollbar',
                 'p-2 text-center transparent-bottom'

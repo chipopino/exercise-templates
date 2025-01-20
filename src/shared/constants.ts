@@ -10,4 +10,8 @@ Ut venenatis tellus in metus vulputate eu scelerisque felis. Nibh ipsum consequa
 Integer eget aliquet nibh praesent tristique magna sit amet purus. Sed risus ultricies tristique nulla aliquet enim tortor at.
 `
 
-export const isT = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+export function isT() {
+    if (typeof window !== 'undefined') {
+        return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    }
+}
