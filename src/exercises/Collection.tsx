@@ -83,7 +83,7 @@ export default function Collection(props: collectionType) {
                 >
                     {/*@ts-ignore*/}
                     {/* {isDsp(i) && <exercise-tag eid={e} class='w-full h-full contents' />} */}
-                    {isDsp(i) && <Exercise eid={`${e}`} className='w-full h-full contents' />}
+                    {isDsp(i) && <Exercise eid={`${e}`} className='w-full h-full' />}
                 </div>)
             }
         </div>

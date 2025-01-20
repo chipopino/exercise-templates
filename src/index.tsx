@@ -137,7 +137,6 @@ export default function Exercise(
     const [resource, setResoutce] = useState<rawExerciseType>({ type: "", content: {} });
     const [exerciseState, setExerciseState] = useState<exerciseStateType>('undefined');
 
-    const isUndefined = exerciseState === 'undefined';
     const isLoading = exerciseState === 'loading';
     const isError = exerciseState === 'error';
     const isSuccess = exerciseState === 'success';
