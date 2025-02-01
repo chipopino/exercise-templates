@@ -128,8 +128,8 @@ function PreExercise(props: any) {
 }
 
 export default function Exercise(
-    { eid, rawExercise, className }:
-        { eid: string, rawExercise?: any, className?: string }
+    { eid, rawExercise, className, style }:
+        { eid: string, rawExercise?: any, className?: string, style?: any }
 ) {
     const ref = useRef();
     const [sizes, setSizes] = useState<{} | sizesType>({});
@@ -206,6 +206,7 @@ export default function Exercise(
         //@ts-ignore
         ref={ref}
         className={cn('__no_prefix_card_body chipopino-css-prefix', className)}
+        style={style}
     >
         {isLoading && <PreExercise><Loader /></PreExercise>}
         {isError && <PreExercise><ErrorIcon /></PreExercise>}
