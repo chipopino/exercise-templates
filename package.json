@@ -2,8 +2,8 @@
   "name": "@chipopino/exercises",
   "main": "dist/bundle.js",
   "types": "dist/index.d.ts",
-  "version": "1.0.2",
-  "description": "My webpack project",
+  "version": "1.0.4",
+  "description": "web exercises for math or other scientific disciplines for helping students and teachers",
   "scripts": {
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
